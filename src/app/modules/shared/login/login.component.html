@@ -1,0 +1,23 @@
+<!--<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Login"></Label>
+</ActionBar>-->
+<StackLayout class="login-wrapper">
+    <StackLayout>
+        <Image src="~/app/images/logo-qroma.png" width="190"></Image>
+        <!--<Image src="http://www.qroma.com.pe/assets/images/icons/logo-qroma.png" width="190"></Image>-->
+    </StackLayout>
+    <StackLayout class="action-wrapper">
+        <Button class="main-button main-color" (tap)="socialLogin('facebook')">
+            <FormattedString>
+                <Span text="&#xea91; Ingrese con Facebook" fontFamily="icomoon"></Span>
+            </FormattedString>
+        </Button>
+        <Button class="main-button main-color" (tap)="socialLogin('facebook')">
+            <FormattedString>
+                <Span text="&#xea89; Ingrese con Google" fontFamily="icomoon"></Span>
+            </FormattedString>
+        </Button>
+        <!--<Button text="Login con Facebook v1.2" (tap)="socialLogin('facebook')"></Button>-->
+        <!--<Button text="Login con Gmail v1" (tap)="socialLogin('gmail')"></Button>-->
+    </StackLayout>
+</StackLayout>
