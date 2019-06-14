@@ -8,6 +8,8 @@ import {AuthenticationService} from "./classes/services/authentication-service";
 import {NativeScriptFormsModule, NativeScriptRouterModule} from "nativescript-angular";
 import {NativeScriptCommonModule} from "nativescript-angular/common";
 import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
+import {RewardsService} from "~/app/classes/services/rewards-service";
+import {ValidationService} from "~/app/classes/services/validation-service";
 
 @NgModule({
     bootstrap: [
@@ -26,7 +28,9 @@ import {NativeScriptHttpClientModule} from "nativescript-angular/http-client";
         AppComponent
     ],
     providers: [
-        AuthenticationService
+        AuthenticationService,
+        RewardsService,
+        ValidationService,
     ],
     schemas: [
         NO_ERRORS_SCHEMA

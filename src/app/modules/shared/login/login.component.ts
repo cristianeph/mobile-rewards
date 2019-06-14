@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
                 this.authService.tnsUpdateCurrentSession();
                 console.log("back to login component with token " + result.accessToken);
                 this.routerExtensions
-                    .navigate(["/home"]);
-                    /*.then(() => console.log("navigated to /home"))
-                    .catch(err => console.log("error navigating to /home: " + err));*/
+                    .navigate(["/otp"]);
+                    /*.then(() => console.log("navigated to / home"))
+                    .catch(err => console.log("error navigating to / home: " + err));*/
             })
             .catch(e => this.handleLoginError(e));
     }
