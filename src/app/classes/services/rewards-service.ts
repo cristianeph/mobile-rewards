@@ -21,15 +21,27 @@ export class RewardsService {
     }
 
     getProducts() {
-        return from(CURRENT_PRODUCTS);
+        return CURRENT_PRODUCTS;
+    }
+
+    getProductRequests() {
+        let requests = [];
+        CURRENT_PRODUCTS.forEach(item => {
+            requests.push(this.getProductAvailabilities(item));
+        });
+        return requests;
     }
 
     getProductAvailabilities(product: IProduct) {
         return this.http.get<IProductAvailability[]>(`${this.get_product_availability_url}/${product.cod_producto}`);
     }
 
+    getLevelGivenClient(clientLevel: IClientLevel) {
+        return CURRENT_LEVELS.find(item => item.categoria === clientLevel.socio);
+    }
+
     getLevels() {
-        return from(CURRENT_LEVELS);
+        return CURRENT_LEVELS;
     }
 
     getRewards(level: ILevel) {

@@ -3,14 +3,24 @@ import {
     TnsOAuthClient,
     ITnsOAuthTokenResult
 } from "nativescript-oauth2";
+import {IUser} from "~/app/classes/interfaces/user-interface";
 
 
 @Injectable()
 export class AuthenticationService {
     public currentSession: ITnsOAuthTokenResult = null;
     private client: TnsOAuthClient = null;
+    private currentUser: IUser;
 
     constructor() {
+    }
+
+    public setCurrentUser(user: IUser) {
+        this.currentUser = user;
+    }
+
+    public getCurrentUser() {
+        return this.currentUser;
     }
 
     public tnsDestroyCurrentSession() {

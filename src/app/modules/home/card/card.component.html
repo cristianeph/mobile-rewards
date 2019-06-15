@@ -1,14 +1,15 @@
 <AbsoluteLayout>
     <StackLayout top="0" left="0" width="100%">
         <Image src="~/app/images/slider2.jpg" stretch="aspectFill"></Image>
-        <!--<Image src="https://www.kamsons.com/images/slider2.jpg" stretch="aspectFill"></Image>-->
     </StackLayout>
     <StackLayout top="50" left="0" width="100%">
-        <StackLayout class="card-wrapper">
+        <StackLayout [class]="getCardLevel()">
             <StackLayout>
+                <Label class="card-type" [text]="getCardLevelName()"></Label>
+                <Label class="card-accumulated" [text]="getPointsAccumlated()"></Label>
                 <Label class="card-names" text="PERALTA HUAMAN CRISTIAN EDUARDO"></Label>
-                <Label class="card-points" text="1200 Ptos."></Label>
-                <Label class="card-type" text="Tipo Oro"></Label>
+                <Label class="card-points" [text]="getAmountEarn()" style.whiteSpace="normal"></Label>
+                <Label class="card-points" [text]="getAmountNeeded()" style.whiteSpace="normal"></Label>
             </StackLayout>
             <StackLayout>
                 <GridLayout columns="*, *, *" rows="*">

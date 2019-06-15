@@ -76,3 +76,33 @@ refer to http://docs.nativescript.org/ui/theme.
     text-align: center;
     /*color: #D51A1A;*/
 }
+
+/*especial*/
+
+.product {
+    /*background-color: orange;*/
+    height: 280;
+    width: 45%;
+    margin-top: 20;
+}
+
+.product-info {
+    padding-top: 10;
+    font-weight: bold;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+.product-cost {
+    padding-top: 10;
+    color: #0078C1;
+    width: 100%;
+    text-align: center;
+}
+
+.false-button {
+    background-color: whitesmoke;
+    border-color: transparent;
+    border-width: 1;
+    text-align: left;
+}

@@ -6,6 +6,7 @@ import {ValidationService} from "~/app/classes/services/validation-service";
 import {SnackBar} from 'nativescript-snackbar';
 import {IUser, IUserValidation} from "~/app/classes/interfaces/user-interface";
 import {RouterExtensions} from "nativescript-angular";
+import {AuthenticationService} from "~/app/classes/services/authentication-service";
 
 @Component({
     selector: 'ns-otp',
@@ -21,6 +22,7 @@ export class OtpComponent implements OnInit {
     status: boolean;
 
     constructor(private page: Page,
+                private authService: AuthenticationService,
                 private rewardsService: RewardsService,
                 private validationService: ValidationService,
                 private routerExtensions: RouterExtensions) {
@@ -62,6 +64,7 @@ export class OtpComponent implements OnInit {
                 this.user = result;
                 this.processing = false;
                 this.snackbar.simple('Listo');
+                this.authService.setCurrentUser(this.user);
                 this.routerExtensions
                     .navigate(["/home"]);
             }, error => {

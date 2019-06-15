@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        /*Se valida si el usuario actual tiene el token sin
+        vencer, si fuera asi se le re dirige al home*/
         let currentToken = this.authService.currentSession;
-        console.log('token actual: ', currentToken);
+        /*console.log('token actual: ', currentToken);*/
         if (currentToken !== null) {
             this.routerExtensions
                 .navigate(["/home"]);
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
     }
 
     socialLogin(type: string) {
-        console.log('selecciono:', type);
+        /*@ToDo Por el momento esta facebook, falta gmail*/
+        /*Se accede al provider de autenticacion oauth2*/
+        /*console.log('selecciono:', type);*/
         this.authService
             .tnsOauthLogin("facebook")
             .then((result: ITnsOAuthTokenResult) => {
@@ -36,13 +40,13 @@ export class LoginComponent implements OnInit {
                 console.log("back to login component with token " + result.accessToken);
                 this.routerExtensions
                     .navigate(["/otp"]);
-                    /*.then(() => console.log("navigated to / home"))
-                    .catch(err => console.log("error navigating to / home: " + err));*/
             })
             .catch(e => this.handleLoginError(e));
     }
 
     handleLoginError(e) {
+        /*En caso de cualquier error durante la validacion de la autenticacion
+        se destruye cualquier dato de usuario previamente ingresado*/
         console.log("Error: " + e);
         this.authService.tnsDestroyCurrentSession();
     }
