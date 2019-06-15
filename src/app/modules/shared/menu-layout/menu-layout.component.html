@@ -1,0 +1,29 @@
+<RadSideDrawer showOverNavigation="true" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent backgroundColor="#f5f5f5">
+        <StackLayout style="margin: 80 0;">
+            <Image src="~/app/images/logo-qroma.png" width="120"></Image>
+        </StackLayout>
+        <StackLayout>
+            <Label class="main-text" text="Bienvenido"></Label>
+            <!--<Label class="side-text-color" text="Bienvenido  Sr(ta). {{user.nombres}}"></Label>-->
+        </StackLayout>
+        <StackLayout style="margin: 20" borderRadius="10" backgroundColor="white">
+            <!--<StackLayout>
+                <GridLayout columns="50, *, 50" rows="*" class="main-text-button">
+                    <Label row="0" col="0" text="&#xe900;" class="menu-icon font-icon"></Label>
+                    <Label row="0" col="1" text="Inicio" class=""></Label>
+                    <Label row="0" col="2" text="&#xea42;" class="menu-icon font-icon"></Label>
+                </GridLayout>
+            </StackLayout>-->
+            <Label class="main-text-button" [nsRouterLink]="['/home']" text="Inicio"></Label>
+            <Label class="main-text-button" [nsRouterLink]="['/home/info']" text="Información"></Label>
+            <Label class="main-text-button" [nsRouterLink]="['/home/user']" text="Datos personales"></Label>
+        </StackLayout>
+        <StackLayout>
+            <Button class="main-button main-color" color="white" (tap)="closeSession()" text="Cerrar Sesión"></Button>
+        </StackLayout>
+    </StackLayout>
+    <StackLayout tkMainContent backgroundColor="whitesmoke">
+        <ng-content></ng-content>
+    </StackLayout>
+</RadSideDrawer>

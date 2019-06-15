@@ -25,7 +25,7 @@ import {ValidationService} from "~/app/classes/services/validation-service";
         SharedModule,
     ],
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     providers: [
         AuthenticationService,

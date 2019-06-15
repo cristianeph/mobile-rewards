@@ -7,7 +7,7 @@
             <StackLayout>
                 <Label class="card-type" [text]="getCardLevelName()"></Label>
                 <Label class="card-accumulated" [text]="getPointsAccumlated()"></Label>
-                <Label class="card-names" text="PERALTA HUAMAN CRISTIAN EDUARDO"></Label>
+                <Label class="card-names" [text]="getCardHolder()"></Label>
                 <Label class="card-points" [text]="getAmountEarn()" style.whiteSpace="normal"></Label>
                 <Label class="card-points" [text]="getAmountNeeded()" style.whiteSpace="normal"></Label>
             </StackLayout>

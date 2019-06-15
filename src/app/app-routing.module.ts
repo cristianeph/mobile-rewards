@@ -5,7 +5,7 @@ import {LoginComponent} from "./modules/shared/login/login.component";
 import {OtpComponent} from "./modules/shared/otp/otp.component";
 
 const routes: Routes = [
-    /*{path: "", redirectTo: "/home", pathMatch: "full"},*/
+    /*{path: "", redirectTo: "/home/info", pathMatch: "full"},*/
     {path: "", redirectTo: "/login", pathMatch: "full"},
     {path: "login", component: LoginComponent},
     {path: "otp", component: OtpComponent},

@@ -1,44 +1,40 @@
-<ActionBar>
-    <StackLayout orientation="horizontal"
-                 ios:horizontalAlignment="left"
-                 android:horizontalAlignment="left">
-        <Button text="Qroma Puntos" class="false-button"></Button>
-    </StackLayout>
-</ActionBar>
-<StackLayout backgroundColor="whitesmoke">
-    <StackLayout>
-        <ns-card [user]="user" (onClientLevel)="validateClientLevel($event)"></ns-card>
-    </StackLayout>
-    <StackLayout width="90%" style="margin: 20 auto;" height="500">
-        <TabView androidSelectedTabHighlightColor="#71C167">
-            <StackLayout *tabItem="{title: 'Productos'}">
-                <ScrollView>
-                    <FlexboxLayout height="900" flexWrap="wrap" alignItems="flex-start"
-                                   justifyContent="space-between">
-                        <StackLayout class="product" *ngFor="let product of availableProducts; let i=index">
-                            <StackLayout backgroundColor="white" style="padding: 10">
-                                <Image [src]="product.Link" height="150" stretch="aspectFit"></Image>
+<ns-menu-layout #menu>
+    <ns-header (onOpenMenu)="menu.openMenu()"></ns-header>
+    <StackLayout width="100%">
+        <StackLayout>
+            <ns-card [user]="user" (onClientLevel)="validateClientLevel($event)"></ns-card>
+        </StackLayout>
+        <StackLayout width="90%" style="margin: 20 auto;" height="500">
+            <TabView androidSelectedTabHighlightColor="#71C167">
+                <StackLayout *tabItem="{title: 'Productos'}">
+                    <ScrollView>
+                        <FlexboxLayout height="900" flexWrap="wrap" alignItems="flex-start"
+                                       justifyContent="space-between">
+                            <StackLayout class="product" *ngFor="let product of availableProducts; let i=index">
+                                <StackLayout backgroundColor="white" style="padding: 10">
+                                    <Image [src]="product.Link" height="150" stretch="aspectFit"></Image>
+                                </StackLayout>
+                                <Label class="product-info" text="{{product.nombre_producto}}"></Label>
+                                <Label class="product-cost" text="{{product.puntos}} Ptos. {{product.cod_cliente !== 'Todos' ? '(Exclusivo)' : ''}}"></Label>
                             </StackLayout>
-                            <Label class="product-info" text="{{product.nombre_producto}}"></Label>
-                            <Label class="product-cost" text="{{product.puntos}} Ptos. {{product.cod_cliente !== 'Todos' ? '(Exclusivo)' : ''}}"></Label>
-                        </StackLayout>
-                    </FlexboxLayout>
-                </ScrollView>
-            </StackLayout>
-            <StackLayout *tabItem="{title: 'Premios'}">
-                <ScrollView>
-                    <FlexboxLayout height="600" flexWrap="wrap" alignItems="flex-start"
-                                   justifyContent="space-between">
-                        <StackLayout class="product" *ngFor="let reward of rewards; let i=index">
-                            <StackLayout backgroundColor="white" style="padding: 10">
-                                <Image [src]="reward.link" height="150" stretch="aspectFit"></Image>
+                        </FlexboxLayout>
+                    </ScrollView>
+                </StackLayout>
+                <StackLayout *tabItem="{title: 'Premios'}">
+                    <ScrollView>
+                        <FlexboxLayout height="600" flexWrap="wrap" alignItems="flex-start"
+                                       justifyContent="space-between">
+                            <StackLayout class="product" *ngFor="let reward of rewards; let i=index">
+                                <StackLayout backgroundColor="white" style="padding: 10">
+                                    <Image [src]="reward.link" height="150" stretch="aspectFit"></Image>
+                                </StackLayout>
+                                <Label class="product-info" text="{{reward.premio}}" style.whiteSpace="normal"></Label>
+                                <Label class="product-cost" text="{{reward.pruntos}} Ptos."></Label>
                             </StackLayout>
-                            <Label class="product-info" text="{{reward.premio}}" style.whiteSpace="normal"></Label>
-                            <Label class="product-cost" text="{{reward.pruntos}} Ptos."></Label>
-                        </StackLayout>
-                    </FlexboxLayout>
-                </ScrollView>
-            </StackLayout>
-        </TabView>
+                        </FlexboxLayout>
+                    </ScrollView>
+                </StackLayout>
+            </TabView>
+        </StackLayout>
     </StackLayout>
-</StackLayout>
+</ns-menu-layout>

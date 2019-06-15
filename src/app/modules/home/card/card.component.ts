@@ -51,6 +51,14 @@ export class CardComponent implements OnInit {
         }
     }
 
+    getCardHolder() {
+        if (this.clientLevel) {
+            return this.clientLevel.nombre;
+        } else {
+            return '...';
+        }
+    }
+
     getCardLevelName() {
         if (this.clientLevel) {
             return this.clientLevel.socio;

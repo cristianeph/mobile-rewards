@@ -13,6 +13,7 @@ import {IReward} from "~/app/classes/interfaces/reward-interface";
     templateUrl: "./home.component.html"
 })
 export class HomeComponent implements OnInit {
+    menu: boolean;
     user: IUser;
     clientLevel: IClientLevel;
     products: IProduct[];
@@ -23,13 +24,13 @@ export class HomeComponent implements OnInit {
         this.products = [];
         this.availableProducts = [];
         this.rewards = [];
+        this.menu = false;
     }
 
     ngOnInit() {
         /*@ToDo Aqui tambien deberia validarse si el token del usuario autorizado sigue vigente*/
         /*Se obtiene el usuario autorizado obtenido previamente*/
-        /*let currentToken = this.authService.currentSession;
-        console.log('token actual: ', currentToken);*/
+        /*let currentToken = this.authService.currentSession;*/
         this.user = this.authService.getCurrentUser();
         /*Usuario de prueba temporal*/
         /*this.user = {
