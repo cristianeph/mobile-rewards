@@ -12,29 +12,27 @@ import {IClientLevel} from "~/app/classes/interfaces/client-interface";
 export class CardComponent implements OnInit {
     @Output() onClientLevel: EventEmitter<IClientLevel> = new EventEmitter();
     @Input() user: IUser;
+    @Input() full: boolean;
     clientLevel: IClientLevel;
 
     constructor(private rewardsService: RewardsService) {
+        this.full = false;
     }
 
     ngOnInit() {
         this.getCardData();
     }
 
+    isFull() {
+        return (this.full === false) ? 'collapsed' : 'visible';
+    }
+
     getCardData() {
-        /*Usuario de prueba temporal*/
-        /*this.user = {
-            id: 123,
-            apellidos: '',
-            cellphone: '',
-            nombres: '',
-            secret: ''
-        };*/
         if (this.user) {
             /*Se obtiene el nivel del usuario logueado*/
             this.rewardsService.getLevel(this.user).subscribe(
                 result => {
-                    console.log('exito', result);
+                    /*console.log('exito', result);*/
                     this.clientLevel = result;
                     this.onClientLevel.emit(this.clientLevel);
                 },
@@ -48,6 +46,8 @@ export class CardComponent implements OnInit {
     getPointsAccumlated() {
         if (this.clientLevel) {
             return `${this.clientLevel.puntos} Puntos`
+        } else {
+            return '...'
         }
     }
 
@@ -68,18 +68,26 @@ export class CardComponent implements OnInit {
     }
 
     getAmountEarn() {
-        if (this.clientLevel) {
-            return `Su avance del mes es S/ ${this.clientLevel.avance}`;
+        if (this.full) {
+            if (this.clientLevel) {
+                return `Su avance del mes es S/ ${this.clientLevel.avance}`;
+            } else {
+                return '...';
+            }
         } else {
-            return '...';
+            return '';
         }
     }
 
     getAmountNeeded() {
-        if (this.clientLevel) {
-            return `Para subir de nivel necesita S/ ${this.clientLevel.cuota_subir}, mantenga su cuota de S/ ${this.clientLevel.cuota_mantener}`;
+        if (this.full) {
+            if (this.clientLevel) {
+                return `Para subir de nivel necesita S/ ${this.clientLevel.cuota_subir}, mantenga su cuota de S/ ${this.clientLevel.cuota_mantener}`;
+            } else {
+                return '...';
+            }
         } else {
-            return '...';
+            return '';
         }
     }
 

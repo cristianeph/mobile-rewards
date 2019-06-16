@@ -1,1 +1,64 @@
-<Button text="user works!" class="btn btn-primary"></Button>
+<ns-menu-layout #menu>
+    <ns-header (onOpenMenu)="menu.openMenu()"></ns-header>
+    <StackLayout width="100%">
+        <ScrollView>
+            <GridLayout rows="auto auto auto auto">
+                <StackLayout row="0" width="80%" style="height: 80; margin: 20 auto">
+                    <GridLayout columns="50, auto" rows="*">
+                        <StackLayout row="0" col="0">
+                            <Image width="50" height="50" stretch="aspectFill" borderRadius="100"
+                                   src="https://scontent.flim16-2.fna.fbcdn.net/v/t1.0-1/p160x160/10171054_10203589544045273_2181204617550903413_n.jpg?_nc_cat=109&_nc_ht=scontent.flim16-2.fna&oh=6187271fe6d75fe57dde3d9cce7855b3&oe=5D7DE70C"></Image>
+                        </StackLayout>
+                        <StackLayout row="0" col="1">
+                            <Label class="personal-info" [text]="getNames()"></Label>
+                            <Label class="personal-info-warn" [text]="getPoints()" style.whiteSpace="normal"></Label>
+                        </StackLayout>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout row="1">
+                    <AbsoluteLayout>
+                        <StackLayout top="0" left="0" width="100%">
+                            <!--<Image src="~/app/images/slider2.jpg" stretch="aspectFill"></Image>-->
+                        </StackLayout>
+                        <StackLayout top="0" left="0" width="100%">
+                            <ns-card [user]="user" full="true" (onClientLevel)="validateClientLevel($event)"></ns-card>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </StackLayout>
+                <StackLayout row="2" width="80%" class="about-wrapper" height="460">
+                    <StackLayout width="100%" style="margin: 0 auto;">
+                        <FlexboxLayout flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                            <StackLayout class="about">
+                                <Label class="about-icon" text="&#xe93f;"></Label>
+                                <Label class="about-info" text="Nivel"></Label>
+                                <Label class="about-description" style.whiteSpace="normal"
+                                       [text]="getCardLevel()"></Label>
+                            </StackLayout>
+                            <StackLayout class="about">
+                                <Label class="about-icon" text="&#xe953;"></Label>
+                                <Label class="about-info" text="Mes"></Label>
+                                <Label class="about-description" style.whiteSpace="normal"
+                                       [text]="getAmountEarn()"></Label>
+                            </StackLayout>
+                        </FlexboxLayout>
+                        <FlexboxLayout flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                            <StackLayout class="about">
+                                <Label class="about-icon" text="&#xea07;"></Label>
+                                <Label class="about-info" text="Mantenga"></Label>
+                                <Label class="about-description" style.whiteSpace="normal"
+                                       [text]="getAmountNeeded()"></Label>
+                            </StackLayout>
+                            <StackLayout class="about">
+                                <Label class="about-icon" text="&#xea33;"></Label>
+                                <Label class="about-info" text="Suba"></Label>
+                                <Label class="about-description" style.whiteSpace="normal"
+                                       [text]="getAmountPromotion()"></Label>
+                            </StackLayout>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </StackLayout>
+
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</ns-menu-layout>

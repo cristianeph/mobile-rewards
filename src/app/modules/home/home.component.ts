@@ -6,6 +6,7 @@ import {RewardsService} from "~/app/classes/services/rewards-service";
 import {IProduct, IProductAvailability} from "~/app/classes/interfaces/products-interface";
 import {forkJoin, Observable, Subject} from 'rxjs';
 import {IReward} from "~/app/classes/interfaces/reward-interface";
+import {RouterExtensions} from "nativescript-angular";
 
 @Component({
     selector: "Home",
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
     availableProducts: IProductAvailability[];
     rewards: IReward[];
     constructor(private authService: AuthenticationService,
-                private rewardsService: RewardsService) {
+                private rewardsService: RewardsService,
+                private routerExtensions: RouterExtensions) {
         this.products = [];
         this.availableProducts = [];
         this.rewards = [];
@@ -30,7 +32,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         /*@ToDo Aqui tambien deberia validarse si el token del usuario autorizado sigue vigente*/
         /*Se obtiene el usuario autorizado obtenido previamente*/
-        /*let currentToken = this.authService.currentSession;*/
         this.user = this.authService.getCurrentUser();
         /*Usuario de prueba temporal*/
         /*this.user = {
@@ -47,47 +48,16 @@ export class HomeComponent implements OnInit {
         la tarjeta se obtiene los datos del nivel del usuario*/
         if (clientLevel) {
             this.clientLevel = clientLevel;
-            this.getAvailableProducts();
-            this.getRewards();
         }
     }
 
-    getRewards() {
-        /*Se obtiene la lista de premios segun el nivel de cliente*/
-        let level = this.rewardsService.getLevelGivenClient(this.clientLevel);
-        this.rewardsService.getRewards(level).subscribe(
-            result => {
-                this.rewards = result;
-            }, error => {
-                console.error(error);
-            }
-        )
+    goRewards() {
+        this.routerExtensions
+            .navigate(["/home/list"]);
     }
 
-    getAvailableProducts() {
-        /*@ToDo Se deberia cambiar la forma en la que se obtiene la lista completa de productos*/
-        /*Se valida la lista de productos disponibles vs la disponibilidad*/
-        this.products = this.rewardsService.getProducts();
-        forkJoin(
-            this.rewardsService.getProductRequests()
-        ).subscribe(
-            response => {
-                let disponible_normal = [];
-                let disponible_especifico = [];
-                this.products.forEach((item, index) => {
-                    let disponibilidad: IProductAvailability[] = response[index];
-                    let normal = disponibilidad.find(item => item.cod_cliente === 'Todos');
-                    let especifico = disponibilidad.find(item => item.cod_cliente === String(this.user.id));
-                    if (normal !== undefined) {
-                        disponible_normal.push(normal);
-                    }
-                    if (especifico !== undefined) {
-                        disponible_especifico.push(especifico);
-                    }
-                });
-                this.availableProducts = disponible_especifico.concat(disponible_normal)
-            }
-        );
-
+    goProducts() {
+        this.routerExtensions
+            .navigate(["/home/list"]);
     }
 }

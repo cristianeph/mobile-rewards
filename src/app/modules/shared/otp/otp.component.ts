@@ -75,6 +75,7 @@ export class OtpComponent implements OnInit {
     }
 
     isFieldOn(field: string) {
+        /*funciones para validar visualizacion de elementos*/
         if (field === 'cellphone') {
             return (this.status === false) ? 'visible' : 'collapsed';
         }

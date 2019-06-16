@@ -2,39 +2,36 @@
     <ns-header (onOpenMenu)="menu.openMenu()"></ns-header>
     <StackLayout width="100%">
         <StackLayout>
-            <ns-card [user]="user" (onClientLevel)="validateClientLevel($event)"></ns-card>
+            <AbsoluteLayout>
+                <StackLayout top="0" left="0" width="100%">
+                    <Image src="~/app/images/slider2.jpg" stretch="aspectFill"></Image>
+                </StackLayout>
+                <StackLayout top="50" left="0" width="100%">
+                    <ns-card [user]="user" (onClientLevel)="validateClientLevel($event)"></ns-card>
+                </StackLayout>
+            </AbsoluteLayout>
         </StackLayout>
-        <StackLayout width="90%" style="margin: 20 auto;" height="500">
-            <TabView androidSelectedTabHighlightColor="#71C167">
-                <StackLayout *tabItem="{title: 'Productos'}">
-                    <ScrollView>
-                        <FlexboxLayout height="900" flexWrap="wrap" alignItems="flex-start"
-                                       justifyContent="space-between">
-                            <StackLayout class="product" *ngFor="let product of availableProducts; let i=index">
-                                <StackLayout backgroundColor="white" style="padding: 10">
-                                    <Image [src]="product.Link" height="150" stretch="aspectFit"></Image>
-                                </StackLayout>
-                                <Label class="product-info" text="{{product.nombre_producto}}"></Label>
-                                <Label class="product-cost" text="{{product.puntos}} Ptos. {{product.cod_cliente !== 'Todos' ? '(Exclusivo)' : ''}}"></Label>
-                            </StackLayout>
-                        </FlexboxLayout>
-                    </ScrollView>
-                </StackLayout>
-                <StackLayout *tabItem="{title: 'Premios'}">
-                    <ScrollView>
-                        <FlexboxLayout height="600" flexWrap="wrap" alignItems="flex-start"
-                                       justifyContent="space-between">
-                            <StackLayout class="product" *ngFor="let reward of rewards; let i=index">
-                                <StackLayout backgroundColor="white" style="padding: 10">
-                                    <Image [src]="reward.link" height="150" stretch="aspectFit"></Image>
-                                </StackLayout>
-                                <Label class="product-info" text="{{reward.premio}}" style.whiteSpace="normal"></Label>
-                                <Label class="product-cost" text="{{reward.pruntos}} Ptos."></Label>
-                            </StackLayout>
-                        </FlexboxLayout>
-                    </ScrollView>
-                </StackLayout>
-            </TabView>
+        <StackLayout width="80%" style="margin: 30 auto;">
+            <Label class="main-separator-text" style.whiteSpace="normal"
+                   text="Descubra que puede hacer con sus puntos Qroma"></Label>
+        </StackLayout>
+        <StackLayout width="80%" class="point-wrapper" height="230" (tap)="goProducts()">
+            <StackLayout width="100%" style="margin: 0 auto;">
+                <FlexboxLayout flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                    <StackLayout class="point">
+                        <Label class="point-icon" text="&#xe905;"></Label>
+                        <Label class="point-info" text="Productos"></Label>
+                        <Label class="point-description" style.whiteSpace="normal"
+                               text="Canjea tus puntos por productos aquí"></Label>
+                    </StackLayout>
+                    <StackLayout class="point">
+                        <Label class="point-icon" text="&#xe903;"></Label>
+                        <Label class="point-info" text="Premios"></Label>
+                        <Label class="point-description" style.whiteSpace="normal"
+                               text="Reclama tus premios aquí"></Label>
+                    </StackLayout>
+                </FlexboxLayout>
+            </StackLayout>
         </StackLayout>
     </StackLayout>
 </ns-menu-layout>

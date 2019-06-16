@@ -1,0 +1,16 @@
+<StackLayout class="product">
+    <AbsoluteLayout>
+        <StackLayout top="0" left="0" width="100%">
+            <StackLayout style="margin: 20">
+                <Image [src]="product.Link" height="150" stretch="aspectFit"></Image>
+            </StackLayout>
+            <StackLayout>
+                <Label class="product-info" text="{{product.nombre_producto}}"></Label>
+                <Label class="product-cost" text="{{product.puntos}} Ptos. {{product.cod_cliente !== 'Todos' ? '(Exclusivo)' : ''}}"></Label>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout top="0" left="0" width="100%" [visibility]="isExclusive()">
+            <Label class="product-exclusive" [text]="getExclusivity()"></Label>
+        </StackLayout>
+    </AbsoluteLayout>
+</StackLayout>

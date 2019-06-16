@@ -5,22 +5,31 @@
         </StackLayout>
         <StackLayout>
             <Label class="main-text" text="Bienvenido"></Label>
-            <!--<Label class="side-text-color" text="Bienvenido  Sr(ta). {{user.nombres}}"></Label>-->
         </StackLayout>
-        <StackLayout style="margin: 20" borderRadius="10" backgroundColor="white">
-            <!--<StackLayout>
-                <GridLayout columns="50, *, 50" rows="*" class="main-text-button">
-                    <Label row="0" col="0" text="&#xe900;" class="menu-icon font-icon"></Label>
-                    <Label row="0" col="1" text="Inicio" class=""></Label>
-                    <Label row="0" col="2" text="&#xea42;" class="menu-icon font-icon"></Label>
-                </GridLayout>
-            </StackLayout>-->
-            <Label class="main-text-button" [nsRouterLink]="['/home']" text="Inicio"></Label>
-            <Label class="main-text-button" [nsRouterLink]="['/home/info']" text="Información"></Label>
-            <Label class="main-text-button" [nsRouterLink]="['/home/user']" text="Datos personales"></Label>
+        <StackLayout style="width: 90%; margin: 20 auto" borderRadius="10" backgroundColor="white">
+            <FlexboxLayout class="menu-item" flexWrap="wrap" alignItems="flex-start" justifyContent="space-between"
+                           [nsRouterLink]="['/home']">
+                <Label class="menu-item-icon" text="&#xe900;"></Label>
+                <Label class="menu-item-text" text="Inicio"></Label>
+                <Label class="menu-item-icon" text="&#xe902;"></Label>
+            </FlexboxLayout>
+            <FlexboxLayout class="menu-item" flexWrap="wrap" alignItems="flex-start" justifyContent="space-between"
+                           [nsRouterLink]="['/home/user']">
+                <Label class="menu-item-icon" text="&#xe976;"></Label>
+                <Label class="menu-item-text" text="Datos personales"></Label>
+                <Label class="menu-item-icon" text="&#xe902;"></Label>
+            </FlexboxLayout>
+            <FlexboxLayout class="menu-item" flexWrap="wrap" alignItems="flex-start" justifyContent="space-between"
+                           [nsRouterLink]="['/home/list']">
+                <Label class="menu-item-icon" text="&#xe904;"></Label>
+                <Label class="menu-item-text" text="Productos y Premios"></Label>
+                <Label class="menu-item-icon" text="&#xe902;"></Label>
+            </FlexboxLayout>
         </StackLayout>
-        <StackLayout>
-            <Button class="main-button main-color" color="white" (tap)="closeSession()" text="Cerrar Sesión"></Button>
+        <StackLayout style="width: 90%; margin: 20 auto" borderRadius="10" class="main-color">
+            <StackLayout class="menu-item">
+                <Label class="menu-item-button font-icon" (tap)="closeSession()" text="Cerrar Sesión"></Label>
+            </StackLayout>
         </StackLayout>
     </StackLayout>
     <StackLayout tkMainContent backgroundColor="whitesmoke">
