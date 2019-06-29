@@ -12,8 +12,6 @@ refer to http://docs.nativescript.org/ui/theme.
 @import '~nativescript-theme-core/css/core.light.css';
 
 /*
-For example, the following CSS rule changes the font size of all UI
-components that have the btn class name.
 */
 .btn {
     font-size: 18;
@@ -25,10 +23,263 @@ components that have the btn class name.
     /*font-family: 'icomoon';*/
 }
 
+.main-text-color {
+    color: #0078C1;
+}
+
 .side-color {
     background-color: #71C167;
 }
 
-.main-button {
+.side-text-color {
+    color: #71C167;
+}
+
+/*.menu-option {
+    background-color: whitesmoke;
+    border-color: transparent;
+    text-align: center;
+}*/
+
+.main-text-button {
     margin: 10 0;
+}
+
+.main-button {
+    margin: 5 0;
+}
+
+.menu-item {
+    height: 50;
+    /*padding: 15 0;*/
+}
+
+.menu-item-button {
+    padding: 15 0;
+    width: 100%;
+    font-size: 15;
+    text-align: center;
+}
+
+.menu-item-text {
+    padding: 15 0;
+    width: 60%;
+    font-size: 15;
+}
+
+.menu-item-icon {
+    padding: 15 0;
+    width: 20%;
+    font-size: 15;
+    text-align: center;
+    font-family: 'icomoon';
+}
+
+/*layouts*/
+
+.form {
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-wrapper {
+    /*padding: 40 10;*/
+    flex-grow: 2;
+    vertical-align: middle;
+    /*background-color: #71C167;*/
+}
+
+.main-separator-text {
+    color: black;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+    /*text-transform: uppercase;*/
+}
+
+.main-text {
+    width: 70%;
+    text-align: center;
+    margin-bottom: 40;
+}
+
+.action-wrapper {
+    /*padding: 40 0;*/
+}
+
+.logo {
+    margin-bottom: 12;
+    height: 90;
+    font-weight: bold;
+}
+
+.header {
+    horizontal-align: center;
+    font-size: 25;
+    font-weight: 600;
+    margin-bottom: 70;
+    text-align: center;
+    /*color: #D51A1A;*/
+}
+
+/*especial */
+
+.personal-photo {
+    /*border-radius: 30;*/
+    margin: 10;
+}
+
+.personal-info {
+    padding: 0 10;
+}
+
+.personal-info-warn {
+    padding: 5 10;
+    color: #0078C1;
+    font-weight: bold;
+    font-size: 18;
+}
+
+.about-wrapper {
+    background-color: white;
+    margin: 40 auto;
+    border-radius: 10;
+}
+.about {
+    /*background-color: white;*/
+    /*border-radius: 10;*/
+    /*border-width: 1;
+    border-color: #cecece;*/
+    /*height: 280;*/
+    width: 50%;
+    margin-top: 20;
+}
+
+.about-icon {
+    padding: 0 10 40 10;
+    font-weight: bold;
+    font-family: 'icomoon';
+    font-size: 40;
+    color: #0078C1;
+    width: 100%;
+    text-align: left;
+}
+
+.about-info {
+    padding: 10;
+    font-weight: bold;
+    font-size: 20;
+    color: black;
+    width: 100%;
+    text-align: left;
+}
+
+.about-description {
+    padding: 10;
+    font-weight: bold;
+    color: #cecece;
+    width: 100%;
+    text-align: left;
+}
+
+.point-wrapper {
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 10;
+    /*border-width: 1;
+    border-color: #dddddd;*/
+}
+
+.point {
+    /*background-color: white;*/
+    /*border-radius: 10;*/
+    /*border-width: 1;
+    border-color: #cecece;*/
+    /*height: 280;*/
+    width: 50%;
+    margin-top: 20;
+}
+
+.point-icon {
+    padding: 0 10 40 10;
+    font-weight: bold;
+    font-family: 'icomoon';
+    font-size: 40;
+    color: #0078C1;
+    width: 100%;
+    text-align: left;
+}
+
+.point-info {
+    padding: 10;
+    font-weight: bold;
+    font-size: 20;
+    color: black;
+    width: 100%;
+    text-align: left;
+}
+
+.point-description {
+    padding: 10;
+    font-weight: bold;
+    color: #cecece;
+    width: 100%;
+    text-align: left;
+}
+
+.product-exclusive {
+    background-color: #71C167;
+    padding: 10;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.product {
+    background-color: white;
+    border-radius: 10;
+    height: 280;
+    width: 47%;
+    margin-top: 20;
+}
+
+.product-info {
+    padding: 10;
+    font-weight: bold;
+    color: #0078C1;
+    width: 100%;
+    text-align: center;
+}
+
+.product-cost {
+    padding: 10;
+    font-weight: bold;
+    color: #71C167;
+    width: 100%;
+    text-align: center;
+}
+
+.font-icon {
+    font-family: 'icomoon';
+}
+
+.menu-button {
+    font-family: 'icomoon';
+    width: 40;
+}
+
+.menu-icon {
+    text-align: center;
+}
+
+.false-button {
+    /*background-color: whitesmoke;
+    border-color: transparent;
+    border-width: 1;*/
+    text-align: left;
+    font-size: 15;
+    font-weight: bold;
+    padding: 15 10;
+    color: black;
 }

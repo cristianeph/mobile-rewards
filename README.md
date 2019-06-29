@@ -1,4 +1,4 @@
-# Prueba Técnica para Qroma
+# Demo para app de Recompensas
 El app tiene el objetivo de mostrar y canjear articulos o premios en base a puntos sumados segun el cliente.
 
 ## Quick Start

@@ -1,0 +1,25 @@
+<ns-menu-layout #menu>
+    <ns-header (onOpenMenu)="menu.openMenu()"></ns-header>
+    <TabView androidSelectedTabHighlightColor="#71C167">
+        <StackLayout *tabItem="{title: 'Productos'}">
+            <ScrollView>
+                <StackLayout [visibility]="isFieldOn('loading')">
+                    <ActivityIndicator [busy]="loading"></ActivityIndicator>
+                </StackLayout>
+                <StackLayout [visibility]="isFieldOn('list')" width="90%" backgroundColor="#f5f5f5" style="margin: 0 auto;">
+                    <FlexboxLayout [height]="getListHeight(products)" flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                        <ns-product *ngFor="let item of products" [product]="item" [level]="level"></ns-product>
+                    </FlexboxLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout *tabItem="{title: 'Premios'}">
+            <StackLayout width="90%" backgroundColor="#f5f5f5" style="margin: 0 auto;">
+                <FlexboxLayout [height]="getListHeight(rewards)" flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                    <ns-reward *ngFor="let item of rewards" [reward]="item"></ns-reward>
+                </FlexboxLayout>
+            </StackLayout>
+        </StackLayout>
+    </TabView>
+
+</ns-menu-layout>

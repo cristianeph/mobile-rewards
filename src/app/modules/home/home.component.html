@@ -1,9 +1,37 @@
-<ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Home"></Label>
-</ActionBar>
-
-<GridLayout class="page">
-    <StackLayout>
-        <Label class="action-bar-title" text="Inicio"></Label>
+<ns-menu-layout #menu>
+    <ns-header (onOpenMenu)="menu.openMenu()"></ns-header>
+    <StackLayout width="100%">
+        <StackLayout>
+            <AbsoluteLayout>
+                <StackLayout top="0" left="0" width="100%">
+                    <Image src="~/app/images/slider2.jpg" stretch="aspectFill"></Image>
+                </StackLayout>
+                <StackLayout top="50" left="0" width="100%">
+                    <ns-card [user]="user" (onClientLevel)="validateClientLevel($event)"></ns-card>
+                </StackLayout>
+            </AbsoluteLayout>
+        </StackLayout>
+        <StackLayout width="80%" style="margin: 30 auto;">
+            <Label class="main-separator-text" style.whiteSpace="normal"
+                   text="Descubra que puede hacer con sus puntos Qroma"></Label>
+        </StackLayout>
+        <StackLayout width="80%" class="point-wrapper" height="230" (tap)="goProducts()">
+            <StackLayout width="100%" style="margin: 0 auto;">
+                <FlexboxLayout flexWrap="wrap" alignItems="flex-start" justifyContent="space-between">
+                    <StackLayout class="point">
+                        <Label class="point-icon" text="&#xe905;"></Label>
+                        <Label class="point-info" text="Productos"></Label>
+                        <Label class="point-description" style.whiteSpace="normal"
+                               text="Canjea tus puntos por productos aquí"></Label>
+                    </StackLayout>
+                    <StackLayout class="point">
+                        <Label class="point-icon" text="&#xe903;"></Label>
+                        <Label class="point-info" text="Premios"></Label>
+                        <Label class="point-description" style.whiteSpace="normal"
+                               text="Reclama tus premios aquí"></Label>
+                    </StackLayout>
+                </FlexboxLayout>
+            </StackLayout>
+        </StackLayout>
     </StackLayout>
-</GridLayout>
+</ns-menu-layout>

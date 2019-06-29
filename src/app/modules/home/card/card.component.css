@@ -1,0 +1,56 @@
+.bronze {
+    background-image: url("~/app/images/bronze.png") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.silver {
+    background-image: url("~/app/images/silver.png") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.gold {
+    background-image: url("~/app/images/gold.png") !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.card-wrapper {
+    width: 80%;
+    /*height: 190;*/
+    margin: 0 auto;
+    padding: 10;
+    border-radius: 5;
+    background-color: white;
+}
+
+.card-names {
+    width: 100%;
+    text-transform: uppercase;
+    color: black;
+    padding-bottom: 35;
+}
+
+.card-points {
+    width: 100%;
+    /*margin-top: 40;*/
+    font-size: 10;
+}
+
+.card-accumulated {
+    width: 100%;
+    margin-top: 10;
+    margin-bottom: 20;
+    text-align: left;
+    font-size: 25;
+    font-weight: bold;
+}
+
+.card-type {
+    width: 100%;
+    /*margin-top: 20;
+    margin-bottom: 20;*/
+    text-align: right;
+}

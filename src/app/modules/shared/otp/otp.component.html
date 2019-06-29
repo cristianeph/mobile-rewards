@@ -1,1 +1,31 @@
-<Button text="otp works!" class="btn btn-primary"></Button>
+<FlexboxLayout class="form">
+    <StackLayout class="form-wrapper">
+        <StackLayout>
+            <Image class="logo" src="~/app/images/logo-qroma.png" width="190"></Image>
+            <Label class="header main-text-color" text="Puntos Qroma"></Label>
+        </StackLayout>
+        <StackLayout [visibility]="isFieldOn('form')">
+            <StackLayout>
+                <Label class="main-text" style.whiteSpace="normal" text="Ingrese su número de celular registrado en Qroma para enviarle un código por SMS"></Label>
+            </StackLayout>
+            <StackLayout>
+                <TextInputLayout hint="Ingrese su número de celular" hintAnimationEnabled="true" [visibility]="isFieldOn('cellphone')">
+                    <TextField keyboardType="phone" (returnPress)="checkCellphone($event)"></TextField>
+                </TextInputLayout>
+                <TextInputLayout hint="Ingrese el código enviado por SMS" hintAnimationEnabled="true" [visibility]="isFieldOn('secret')">
+                    <TextField keyboardType="number" (returnPress)="checkSecret($event)"></TextField>
+                </TextInputLayout>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout [visibility]="isFieldOn('loading')">
+            <ActivityIndicator [busy]="processing"></ActivityIndicator>
+        </StackLayout>
+        <!--<StackLayout class="action-wrapper">
+            <Button class="main-button main-color" (tap)="proceedValidation()">
+                <FormattedString>
+                    <Span text="&#xea11; Validar Código de Verificación" fontFamily="icomoon"></Span>
+                </FormattedString>
+            </Button>
+        </StackLayout>-->
+    </StackLayout>
+</FlexboxLayout>
